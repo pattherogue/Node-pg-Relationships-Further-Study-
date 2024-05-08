@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const slugify = require('slugify');
 
 // Middleware to parse JSON
 router.use(express.json());
