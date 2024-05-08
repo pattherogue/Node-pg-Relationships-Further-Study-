@@ -3,11 +3,13 @@ const app = require('../app');
 
 describe('GET /companies', () => {
   it('should return a list of companies', async () => {
-    const res = await request(app).get('/companies');
-    expect(res.statusCode).toEqual(200);
-    expect(res.body.companies).toBeDefined();
+    const response = await request(app).get('/companies');
+    expect(response.status).toBe(200);
+    expect(response.body.companies).toBeDefined();
+    expect(Array.isArray(response.body.companies)).toBe(true);
   });
 });
+
 
 describe('GET /companies/:code', () => {
   it('should return a company by code', async () => {
